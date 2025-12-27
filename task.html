@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>i love you</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: url(https://i.pinimg.com/736x/cc/89/a1/cc89a15937ebeaf7f31a0bf89414d728.jpg) no-repeat center center fixed;
+      background-repeat: no-repeat; 
+      background-size: cover;
+      background-position: center; 
+      font-family: 'Arial', sans-serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+      
+      
+      #page1_5 .card {
+  background: rgba(158, 89, 248, 0.8); /* Pink-ish background */
+  color: black;
+}
+    }
+    .page {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+    .page.active {
+      display: flex;
+    }
+    .card {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+      max-width: 600px;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #ffccff;
+    }
+    p {
+      font-size: 1.3em;
+      line-height: 1.6;
+    }
+    .heart {
+      font-size: 2em;
+      animation: pulse 1.5s infinite;
+      color: pink;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+    .button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: hotpink;
+      color: white;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .button:hover {
+      background-color: deeppink;
+    }
+    #page1_5.card {
+      background: rgba(255, 192, 203, 0.8); /* Pink-ish background */
+      color: black;
+    }
+
+
+  </style>
+</head>
+<body>
+  <audio id="bgMusic" autoplay loop>
+    <source src="music/apocalypse.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Page 1 -->
+  <div class="page active" id="page1">
+    <div class="card">
+      <h1> Энэ өдөр чиний ч, миний ч хувьд онцгой өдөр</h1>
+      <p>
+       <br>
+        Чамд бүхнээс илүү аз жаргал, инээд хөөр, хайр баяр баяслыг хүсэж байна.<br>
+        Чи миний ертөнц, миний аз жаргал, миний шалтгаан...<br><br>
+        <span class="heart">❤️ 🤍 ❤️</span>
+      </p>
+      <button class="button" onclick="goToPage('page1_5')">Цааш үзэх</button>
+    </div>
+  </div>
+
+  <!-- Page 1.5 -->
+  <div class="page" id="page1_5">
+    <div class="card">
+      <h1>Энэ бол миний бяцхан бэлэг</h1>
+      <p>
+        Бүхнээс өмнө чамайг инээлгэхийг хүссэн юм. 💌<br>
+        Би чамайг амьдралдаа хадгалж үлдэхийн тулд, мөн сэтгэлд чинь хүрч, баярлуулах бэлэг болгохыг хичээсэн юм. .<br><br>
+        <span class="heart">❤️</span>
+      </p>
+      <button class="button" onclick="goToPage('page2')">Үргэлжлүүлэх</button>
+    </div>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="page" id="page2">
+    <div class="card">
+      <h1>"So it’s not gonna be easy. It’s going to be really hard. We’re gonna have to work at this every day, but I want to do that because I want you. I want all of you, forever, every day. You and me…”
+        
+        — Noah</h1>
+      <p>
+        Үг хэтэрхий гүн гэж боддог ч хэлж амжаагүй сайхан үгс л харамсал үлдээдэг.<br>
+        Тиймээс ч би сэтгэлийн минь үгсийг энэ жижиг вебдээ орууллаа.<br><br>
+
+        <button class="button" onclick="location.href='page2.html'">Next </button>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function goToPage(pageId) {
+      // Бүх page-уудын active устгасны дараа
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      // Шаардлагатай page-ийг идэвхжүүлнэ
+      const tgt = document.getElementById(pageId);
+      if (!tgt) return console.error("Page олдсонгүй:", pageId);
+      tgt.classList.add('active');
+
+      // Арын фон солих
+      let bg = '';
+      if (pageId === 'page1')      bg = "url('https://i.pinimg.com/736x/f9/78/98/f97898f1b51eaf80b97e2662cd8180c1.jpg')";
+      else if (pageId === 'page1_5') bg = "url('https://i.pinimg.com/1200x/12/73/ed/1273ed3f3f1244cdc5a9eaec4e4a96a8.jpg')";
+      else if (pageId === 'page2')   bg = "url('https://i.pinimg.com/1200x/8d/52/8e/8d528e744c8c3d0a6a54be5a975aee71.jpg')";
+      if (bg) {
+        document.body.style.background = `${bg} no-repeat center center fixed`;
+        document.body.style.backgroundSize = 'cover';
+      }
+    }
+  </script>
+</body>
+</html>
