@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>you are such a special person to me</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-color: black;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding-top: 40px;
+    }
+
+    h1 {
+      font-family: 'Georgia', serif;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .image-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .image-row img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .text-box {
+      max-width: 700px;
+      text-align: center;
+      line-height: 1.6;
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .sub-title {
+      font-style: italic;
+      font-size: 1.2em;
+      color: rgb(0, 0, 0);
+      margin-bottom: 20px;
+    }
+
+    .next-button {
+      margin-top: 40px;
+      padding: 12px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      background-color: rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .next-button:hover {
+      background-color: #000000;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>You are such a beautiful like those bands and artists</h1>
+
+  <audio id="bgMusic" autoplay loop>
+    <source src="music/cas.mp3" type="audio/mpeg" />
+  </audio>
+
+  
+  <div class="image-row">
+    <img src="https://i.pinimg.com/736x/01/da/31/01da31ac870bd92d72c167db63ae4736.jpg" alt="photo 2">
+    <img src="https://i.pinimg.com/736x/ad/51/cc/ad51cca8f65bd7cef81fdc18542622db.jpg" alt="photo 1">
+    <img src="https://i.pinimg.com/736x/84/49/95/84499511489ebfd91c9e072cffb6410d.jpg" alt="photo 3">
+    <img src="https://i.pinimg.com/736x/56/09/75/560975fdec4ff836284d8b9599b25e32.jpg" alt="photo 5">
+    <img src="https://i.pinimg.com/736x/30/4b/1b/304b1b5f00cafb8ca413314eb829d564.jpg" alt="photo 6">
+    <img src="https://i.pinimg.com/736x/03/a8/c3/03a8c356934b997635b42d376322e091.jpg" alt="photo 7">
+    <img src="https://i.pinimg.com/736x/2b/2f/63/2b2f63777d274345654dd844125b8d34.jpg" alt="photo 8">
+  </div>
+
+  <div class="text-box">
+    <div class="sub-title">Stay with me i don't want you to leave...</div> 
+    <p>Хэрвээ чи лаа байсан бол гэрэл чинь бүдгэрэх мөчид би чамайг зүрхэндээ тэврэн, хүйтэн салхинаас хамгаалах байсан.
+Сэтгэл минь чамд орон гэр мэт  байгаасай
+Чи яг л дуртай дуунууд шиг минь үзэсгэлэнтэй.
+Чамд зориулж энэ вэбсайтыг чин сэтгэлээсээ бүтээлээ.
+Чиний инээмсэглэл л энэ бүхний шалтгаан.Хэрвээ чи надад итгэвэл би үргэлж чиний дэргэд байх болно.
+Амлалт минь энгийн ч, сэтгэл минь үнэнч. </p>
+  </div>
+
+  <!-- NEXT BUTTON -->
+<!-- page1.html -->
+…
+<button class="button" onclick="location.href='page3.html'">Next </button>
+…
+
+
+  <script>
+    const music = document.getElementById("bgMusic");
+
+    music.addEventListener("loadedmetadata", () => {
+      const savedTime = localStorage.getItem("musicTime");
+      const shouldPlay = localStorage.getItem("playMusic");
+
+      if (savedTime && shouldPlay === "true") {
+        music.currentTime = parseFloat(savedTime);
+        music.play();
+      } else {
+        music.play();
+      }
+    });
+
+    function goToNext() {
+      window.location.href = "page3.html";
+    }
+  </script>
+</body>
+</html>
